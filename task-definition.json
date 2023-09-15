@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:724344275414:task-definition/oms:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:724344275414:task-definition/oreo:1",
     "containerDefinitions": [
         {
-            "name": "oms",
-            "image": "724344275414.dkr.ecr.ap-south-1.amazonaws.com/oms-dev",
+            "name": "oreo",
+            "image": "724344275414.dkr.ecr.ap-south-1.amazonaws.com/adminpanel/dev/dev",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "oms-80-tcp",
+                    "name": "oreo-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
@@ -24,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/oms",
+                    "awslogs-group": "/ecs/oreo",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -32,7 +32,7 @@
             }
         }
     ],
-    "family": "oms",
+    "family": "oreo",
     "executionRoleArn": "arn:aws:iam::724344275414:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
@@ -78,7 +78,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-09-15T05:59:15.591Z",
+    "registeredAt": "2023-09-15T09:55:24.993Z",
     "registeredBy": "arn:aws:sts::724344275414:assumed-role/AWSReservedSSO_AdministratorAccess_18742729607db441/deepak.gupta@Nykaa.local",
     "tags": []
 }
