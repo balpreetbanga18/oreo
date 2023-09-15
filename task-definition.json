@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:724344275414:task-definition/oreo:1",
+    "family": "oreo",
     "containerDefinitions": [
         {
             "name": "oreo",
@@ -32,43 +32,8 @@
             }
         }
     ],
-    "family": "oreo",
     "executionRoleArn": "arn:aws:iam::724344275414:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -77,8 +42,5 @@
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-09-15T09:55:24.993Z",
-    "registeredBy": "arn:aws:sts::724344275414:assumed-role/AWSReservedSSO_AdministratorAccess_18742729607db441/deepak.gupta@Nykaa.local",
-    "tags": []
+    }
 }
