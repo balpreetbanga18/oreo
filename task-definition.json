@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:911609873560:task-definition/preprod-cd-cms-service-uwsgi-task:182",
+    "family": "preprod-cd-cms-service-uwsgi-task",
     "containerDefinitions": [
         {
             "name": "preprod-cd-cms-service-uwsgi",
@@ -30,9 +30,7 @@
             "hostname": "preprod"
         }
     ],
-    "family": "preprod-cd-cms-service-uwsgi-task",
     "taskRoleArn": "arn:aws:iam::911609873560:role/preprod-cd-cms-service-uwsgi-iam-role",
-    "revision": 182,
     "volumes": [
         {
             "name": "log_volume",
@@ -40,28 +38,5 @@
                 "sourcePath": "/var/log/app/cms-api"
             }
         }
-    ],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EXTERNAL",
-        "EC2"
-    ],
-    "registeredAt": "2024-01-24T05:52:14.541Z",
-    "registeredBy": "arn:aws:sts::911609873560:assumed-role/new-nka-preprod-jenkins-mumbai-role/i-0726a3fccdcf02e5a",
-    "tags": []
+    ]
 }
