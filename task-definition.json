@@ -1,46 +1,67 @@
 {
-    "family": "oreo",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:911609873560:task-definition/preprod-cd-cms-service-uwsgi-task:182",
     "containerDefinitions": [
         {
-            "name": "oreo",
-            "image": "724344275414.dkr.ecr.ap-south-1.amazonaws.com/adminpanel/dev/dev",
-            "cpu": 0,
+            "name": "preprod-cd-cms-service-uwsgi",
+            "image": "911609873560.dkr.ecr.ap-south-1.amazonaws.com/nka-preprod-mumbai-cms-repo:108",
+            "cpu": 100,
+            "memoryReservation": 800,
             "portMappings": [
                 {
-                    "name": "oreo-80-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "containerPort": 80,
+                    "hostPort": 0,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
-            "environment": [],
-            "environmentFiles": [],
-            "mountPoints": [],
+            "environment": [
+                {
+                    "name": "ENV_CONFIG",
+                    "value": "mumbai-preprod"
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "log_volume",
+                    "containerPath": "/var/log/uwsgi/app/"
+                }
+            ],
             "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/oreo",
-                    "awslogs-region": "ap-south-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+            "hostname": "preprod"
+        }
+    ],
+    "family": "preprod-cd-cms-service-uwsgi-task",
+    "taskRoleArn": "arn:aws:iam::911609873560:role/preprod-cd-cms-service-uwsgi-iam-role",
+    "revision": 182,
+    "volumes": [
+        {
+            "name": "log_volume",
+            "host": {
+                "sourcePath": "/var/log/app/cms-api"
             }
         }
     ],
-    "executionRoleArn": "arn:aws:iam::724344275414:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "requiresCompatibilities": [
-        "FARGATE"
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        }
     ],
-    "cpu": "1024",
-    "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    }
+    "placementConstraints": [],
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "registeredAt": "2024-01-24T05:52:14.541Z",
+    "registeredBy": "arn:aws:sts::911609873560:assumed-role/new-nka-preprod-jenkins-mumbai-role/i-0726a3fccdcf02e5a",
+    "tags": []
 }
